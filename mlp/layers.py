@@ -24,7 +24,7 @@ class Layer(object):
 
         Args:
             inputs: Array of layer inputs of shape (batch_size, input_dim).
-
+        
         Returns:
             outputs: Array of layer outputs of shape (batch_size, output_dim).
         """
@@ -100,6 +100,8 @@ class AffineLayer(LayerWithParameters):
         self.output_dim = output_dim
         self.weights = weights_initialiser((self.output_dim, self.input_dim))
         self.biases = biases_initialiser(self.output_dim)
+        self.weights_cost = weights_cost
+        self.biases_cost = biases_cost
 
     def fprop(self, inputs):
         """Forward propagates activations through the layer transformation.
@@ -109,12 +111,12 @@ class AffineLayer(LayerWithParameters):
 
         Args:
             inputs: Array of layer inputs of shape (batch_size, input_dim).
-
+        
         Returns:
             outputs: Array of layer outputs of shape (batch_size, output_dim).
         """
-        raise NotImplementedError()
-
+        return self.weights.dot(inputs.T).T + self.biases
+    
     def grads_wrt_params(self, inputs, grads_wrt_outputs):
         """Calculates gradients with respect to layer parameters.
 
@@ -127,8 +129,9 @@ class AffineLayer(LayerWithParameters):
             list of arrays of gradients with respect to the layer parameters
             `[grads_wrt_weights, grads_wrt_biases]`.
         """
-        raise NotImplementedError()
-
+        grads_wrt_weights = np.dot(inputs.T,grads_wrt_outputs).T
+        grads_wrt_biases = np.sum(grads_wrt_outputs,axis=0)
+        return grads_wrt_weights, grads_wrt_biases        
     @property
     def params(self):
         """A list of layer parameter values: `[weights, biases]`."""
