@@ -160,3 +160,70 @@ class MomentumLearningRule(GradientDescentLearningRule):
             mom *= self.mom_coeff
             mom -= self.learning_rate * grad
             param += mom
+
+class AdagradLearningRule(GradientDescentLearningRule):
+    
+    def __init__(self,learning_rate, eps = 1e-8):
+        super(AdagradLearningRule, self).__init__(learning_rate)
+        self.eps = eps
+        
+    def initialise(self, params):
+        super(AdagradLearningRule, self).initialise(params)
+        self.caches = []
+        for param in self.params:
+            self.caches.append(np.zeros_like(param)) 
+    def reset(self):
+        for cache in self.caches:
+            cache *= 0
+    def update_params(self, grads_wrt_params):
+        for param, cache, grad in zip(self.params, self.caches, grads_wrt_params):
+            cache += grad**2
+            param += - self.learning_rate * grad / (np.sqrt(cache)+ self.eps)
+
+class RMSpropLearningRule(GradientDescentLearningRule):
+    def __init__(self, learning_rate, eps = 1e-8, decay_rate = 0.9):
+        super(RMSpropLearningRule, self).__init__(learning_rate)
+        self.eps = eps
+        self.decay_rate = decay_rate
+        
+    def initialise(self, params):
+        super(RMSpropLearningRule, self).initialise(params)
+        self.caches = []
+        for param in self.params:
+            self.caches.append(np.zeros_like(param))
+    def reset(self):
+        for cache in self.caches:
+            cache *= 0
+    def update_params(self, grads_wrt_params):
+        for param, cache, grad in zip(self.params, self.caches, grads_wrt_params):
+            cache *= self.decay_rate
+            cache += (1-self.decay_rate) * (grad **2)
+            param += - self.learning_rate * grad / (np.sqrt(cache)+ self.eps)
+
+'''
+class AdamLearningRule(GradientDescentLearningRule):
+    def __init__(self, learning_rate, eps = 1e-8 , alpha = 0.9, beta=0.999):
+        super(AdamLearningRule, self).__init__(learning_rate)
+        self.eps = eps
+        self.alpha = alpha
+        self.beta = beta
+        
+    def initialise(self, params):
+        super(AdamLearningRule, self).initialise(params)
+        self.moms = []
+        self.caches = []
+        for param in self.params:
+            self.caches.append(np.zeros_like(param))
+    
+    def reset(self):
+        for cache in self.caches:
+            cache *= 0
+        for mom in self.moms:
+            mom *= 0
+    def update_params(self, grads_wrt_params):
+        for param, cache, mom, grad in zip(self.params, self.chaches, self.moms, grads_wrt_params):
+            mom = self.alpha*mom + (1-self.alpha)*grad
+            cache = self.beta*cache + (1-self.beta)* (grad**2)
+            param += -self.learning_rate * mom / (np.sqrt(cache) + self.eps)
+'''
+        

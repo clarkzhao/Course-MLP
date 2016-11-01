@@ -34,7 +34,7 @@ class ConstantLearningRateScheduler(object):
         learning_rule.learning_rate = self.learning_rate
 
 class TimeDependentLearningRateScheduler(object):
-    """scheduler interface which sets a time-dependent learning rate."""
+    """scheduler interface which sets a exponential time-dependent learning rate."""
 
     def __init__(self, init_learning_rate, free_parameter):
         """Construct a new time-dependent learning rate scheduler object.
@@ -58,3 +58,23 @@ class TimeDependentLearningRateScheduler(object):
             epoch_number: Integer index of training epoch about to be run.
         """
         learning_rule.learning_rate = self.learning_rate * np.exp(-epoch_number/(1.0*self.free_parameter))
+        
+class MomentumCoefficientScheduler(object):
+    def __init__(self, asy_mom_coeff, tau, gamma):
+        self.asy_mom_coeff = asy_mom_coeff
+        self.tau = tau
+        self.gamma = gamma
+    def update_learning_rule(self, learning_rate, epoch_number):
+        """Update the hyperparameters of the momentum coefficient.
+
+        Run at the beginning of each epoch.
+
+        Args:
+            learning_rule: Learning rule object being used in training run,
+                any scheduled hyperparameters to be altered should be
+                attributes of this object.
+            epoch_number: Integer index of training epoch about to be run.
+        """
+        learning_rate.mom_coeff = self.asy_mom_coeff * (1 - self.gamma / (epoch_number + self.tau) ) 
+    
+
