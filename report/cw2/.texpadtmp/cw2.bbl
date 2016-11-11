@@ -1,0 +1,60 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{nty/global/}
+    \entry{Elastic}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=80d869e8cc8acab133b1cf3c59661da8}{%
+           family={Simard},
+           family_i={S\bibinitperiod},
+           given={P.\bibnamedelimi Y.},
+           given_i={P\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=ac19ae85f2345eac0275aa04793d976c}{%
+           family={Steinkraus},
+           family_i={S\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=3ce0b4a9e9a5ae0cfea69aa920751dec}{%
+           family={Platt},
+           family_i={P\bibinitperiod},
+           given={J.\bibnamedelimi C.},
+           given_i={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{654c7f2f1b0e66c686f6db51047835b8}
+      \strng{fullhash}{654c7f2f1b0e66c686f6db51047835b8}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Document Analysis and Recognition, 2003. Proceedings. Seventh International Conference on}
+      \field{month}{08}
+      \field{title}{Best practices for convolutional neural networks applied to visual document analysis}
+      \field{year}{2003}
+      \field{pages}{958\bibrangedash 963}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/ICDAR.2003.1227801
+      \endverb
+      \keyw{Best practices;Concrete;Convolution;Handwriting recognition;Industrial training;Information processing;Neural networks;Performance analysis;Support vector machines;Text analysis}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
