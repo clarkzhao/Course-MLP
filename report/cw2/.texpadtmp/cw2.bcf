@@ -2097,6 +2097,10 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">Elastic</bcf:citekey>
+    <bcf:citekey order="2">Elastic</bcf:citekey>
+    <bcf:citekey order="3">Elastic</bcf:citekey>
+    <bcf:citekey order="4">Goodfellow-et-al-2016-Book</bcf:citekey>
+    <bcf:citekey order="5">Goodfellow-et-al-2016-Book</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

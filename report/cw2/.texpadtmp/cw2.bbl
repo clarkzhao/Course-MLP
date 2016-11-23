@@ -19,6 +19,37 @@
 
 \refsection{0}
   \sortlist[entry]{nty/global/}
+    \entry{Goodfellow-et-al-2016-Book}{unpublished}{}
+      \name{author}{3}{}{%
+        {{hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           family_i={G\bibinitperiod},
+           given={Ian},
+           given_i={I\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           family_i={B\bibinitperiod},
+           given={Yoshua},
+           given_i={Y\bibinitperiod}}}%
+        {{hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           family_i={C\bibinitperiod},
+           given={Aaron},
+           given_i={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{fullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Book in preparation for MIT Press}
+      \field{title}{Deep Learning}
+      \field{year}{2016}
+      \verb{url}
+      \verb http://www.deeplearningbook.org
+      \endverb
+    \endentry
     \entry{Elastic}{inproceedings}{}
       \name{author}{3}{}{%
         {{hash=80d869e8cc8acab133b1cf3c59661da8}{%
